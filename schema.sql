@@ -98,3 +98,27 @@ CREATE TABLE Student_Activities (
     FOREIGN KEY (student_id) REFERENCES Students(student_id) ON DELETE CASCADE,
     FOREIGN KEY (activity_id) REFERENCES Extra_Curricular_Activities(activity_id) ON DELETE CASCADE
 );
+
+INSERT INTO Extra_Curricular_Activities (activity_name, category, faculty_advisor_id) VALUES
+('Robotics Club', 'Technology', 1),
+('Math Olympiad', 'Academic', 2),
+('Debate Team', 'Arts', 4),
+('Physics Society', 'Science', 3),
+('Drama Club', 'Arts', 4);
+
+INSERT INTO Student_Courses (student_id, course_id) VALUES
+(1, 1), (1, 2), (2, 3), (2, 4), (3, 1), (5, 2);
+
+INSERT INTO Student_Activities (student_id, activity_id) VALUES
+(1, 1), (2, 3), (3, 2), (5, 4), (1, 3);
+
+UPDATE Extra_Curricular_Activities 
+SET category = 'Engineering' 
+WHERE activity_id = 1;
+
+DELETE FROM Extra_Curricular_Activities 
+WHERE activity_id = 5;
+
+SELECT activity_name, faculty_advisor_id 
+FROM Extra_Curricular_Activities 
+WHERE category = 'Academic';
