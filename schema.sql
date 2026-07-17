@@ -122,3 +122,27 @@ WHERE activity_id = 5;
 SELECT activity_name, faculty_advisor_id 
 FROM Extra_Curricular_Activities 
 WHERE category = 'Academic';
+
+
+
+SELECT CONCAT(s.first_name, ' ', s.last_name, ' is enrolled in ', c.course_name, ', taught by ', f.first_name, ' ', f.last_name, ', in room ', cl.room_number, '.') AS enrollment_info
+FROM Students s
+JOIN Student_Courses sc ON s.student_id = sc.student_id
+JOIN Courses c ON sc.course_id = c.course_id
+JOIN Faculty f ON c.faculty_id = f.faculty_id
+JOIN Classroom cl ON c.classroom_id = cl.classroom_id;
+
+SELECT CONCAT(s.first_name, ' ', s.last_name, ' participates in ', e.activity_name, ', advised by ', f.first_name, ' ', f.last_name, '.') AS activity_info
+FROM Students s
+JOIN Student_Activities sa ON s.student_id = sa.student_id
+JOIN Extra_Curricular_Activities e ON sa.activity_id = e.activity_id
+JOIN Faculty f ON e.faculty_advisor_id = f.faculty_id;
+
+SELECT CONCAT('Professor ', f.last_name, ' from the ', f.department, ' department advises the ', e.activity_name, ' (', e.category, ').') AS advisor_info
+FROM Faculty f
+JOIN Extra_Curricular_Activities e ON f.faculty_id = e.faculty_advisor_id;
+
+SELECT c.course_name, COUNT(sc.student_id) AS total_students
+FROM Courses c
+LEFT JOIN Student_Courses sc ON c.course_id = sc.course_id
+GROUP BY c.course_name;
