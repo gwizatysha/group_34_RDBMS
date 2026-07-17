@@ -73,3 +73,12 @@ INSERT INTO Courses (course_name, credits, faculty_id, classroom_id) VALUES
 UPDATE Courses SET credits = 5 WHERE course_id = 1;
 DELETE FROM Courses WHERE course_id = 5;
 SELECT course_name, credits FROM Courses WHERE credits >= 4;
+
+
+CREATE TABLE Extra_Curricular_Activities (
+    activity_id INT PRIMARY KEY AUTO_INCREMENT,
+    activity_name VARCHAR(100) NOT NULL,
+    category VARCHAR(50),
+    faculty_advisor_id BIGINT UNSIGNED,
+    FOREIGN KEY (faculty_advisor_id) REFERENCES Faculty(faculty_id)
+);
