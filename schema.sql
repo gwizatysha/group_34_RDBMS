@@ -43,3 +43,87 @@ WHERE student_id = 4;
 SELECT first_name, last_name, enrollment_date
 FROM Students
 WHERE enrollment_date = '2024-09-01';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- =========================================
+-- Member C: Faculty Table (CREATE TABLE)
+-- =========================================
+CREATE TABLE Faculty (
+  faculty_id SERIAL PRIMARY KEY,
+  first_name VARCHAR(50) NOT NULL,
+  last_name VARCHAR(50) NOT NULL,
+  department VARCHAR(100),
+  email VARCHAR(100) UNIQUE,
+  phone VARCHAR(20),
+  hire_date DATE,
+  office VARCHAR(20)
+);
+
+-- =========================================
+-- Member C: Faculty Table (INSERT statements)
+-- =========================================
+INSERT INTO Faculty 
+(
+    first_name,
+    last_name,
+    department,
+    email, 
+    phone, 
+    hire_date, 
+    office
+    ) VALUES
+('Alice', 'Nguyen', 'Computer Science', 'alice.nguyen@uni.edu', '07884374850', '2015-08-15', 'B201'),
+('Brian', 'Khan', 'Mathematics', 'brian.khan@uni.edu', '0787738459', '2016-09-01', 'C110'),
+('Clara', 'Ochoa', 'Physics', 'clara.ochoa@uni.edu', '0723458295', '2018-01-10', 'D303'),
+('Daniel', 'Smith', 'English', 'daniel.smith@uni.edu', '0734584956', '2012-07-23', 'A005'),
+('Eva', 'Martinez', 'Biology', 'eva.martinez@uni.edu', '0784958495', '2019-02-12', 'E210');
+
+-- =========================================
+-- Member C: Faculty Table (UPDATE / DELETE / SELECT)
+-- =========================================
+
+-- Member C: Update
+UPDATE Faculty
+SET phone = '07812345678'
+WHERE faculty_id = 3;
+
+-- Member C: Delete
+DELETE FROM Faculty
+WHERE faculty_id = 5;
+
+-- Member C: Select
+SELECT * FROM Faculty
+WHERE department = 'Mathematics';
+
+s
