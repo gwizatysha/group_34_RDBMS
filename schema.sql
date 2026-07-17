@@ -45,36 +45,33 @@ FROM Students
 WHERE enrollment_date = '2024-09-01';
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-- =========================================
+-- Member B: Classroom Table (CREATE TABLE)
+-- =========================================
+CREATE TABLE Classroom (
+    classroom_id INT PRIMARY KEY,
+    room_number VARCHAR(10),
+    building VARCHAR(50),
+    capacity INT
+);
+-- =========================================
+-- Member B: Classroom Table (INSERT statements)
+-- =========================================
+INSERT INTO Classroom (classroom_id, room_number, building, capacity) VALUES
+(1, 'A101', 'Main Building', 30),
+(2, 'A102', 'Main Building', 25),
+(3, 'B201', 'Science Block', 40),
+(4, 'B202', 'Science Block', 35),
+(5, 'C301', 'Library Annex', 20);
+-- =========================================
+-- Member B: Classroom Table (UPDATE / DELETE / SELECT)
+-- =========================================
+-- Member B: Update
+UPDATE Classroom SET capacity = 45 WHERE classroom_id = 3;
+-- Member B: Delete
+DELETE FROM Classroom WHERE classroom_id = 5;
+-- Member B: Select
+SELECT * FROM Classroom WHERE building = 'Main Building';
 
 -- =========================================
 -- Member C: Faculty Table (CREATE TABLE)
