@@ -90,3 +90,11 @@ CREATE TABLE Student_Courses (
     FOREIGN KEY (student_id) REFERENCES Students(student_id) ON DELETE CASCADE,
     FOREIGN KEY (course_id) REFERENCES Courses(course_id) ON DELETE CASCADE
 );
+
+CREATE TABLE Student_Activities (
+    student_id INT,
+    activity_id INT,
+    PRIMARY KEY (student_id, activity_id),
+    FOREIGN KEY (student_id) REFERENCES Students(student_id) ON DELETE CASCADE,
+    FOREIGN KEY (activity_id) REFERENCES Extra_Curricular_Activities(activity_id) ON DELETE CASCADE
+);
