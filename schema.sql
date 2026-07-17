@@ -145,4 +145,5 @@ JOIN Extra_Curricular_Activities e ON f.faculty_id = e.faculty_advisor_id;
 SELECT c.course_name, COUNT(sc.student_id) AS total_students
 FROM Courses c
 LEFT JOIN Student_Courses sc ON c.course_id = sc.course_id
-GROUP BY c.course_name;
+GROUP BY c.course_name;-- Normalization Discussion
+-- Our tables are normalized so we're not repeating the same data over and over. Each table -- Students, Classroom, Faculty, Courses -- has its own primary key, and instead of copying details like a faculty member's name into every course they teach, we just reference them using a foreign key (faculty_id, classroom_id). That way, if a faculty member's info changes, we only update it in one place, not in every row that mentions them. The junction tables (Student_Courses and Student_Activities) follow the same idea -- instead of duplicating student, course, or activity info for every enrollment, they just store the IDs that connect them.
