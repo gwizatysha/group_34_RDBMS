@@ -82,3 +82,11 @@ CREATE TABLE Extra_Curricular_Activities (
     faculty_advisor_id BIGINT UNSIGNED,
     FOREIGN KEY (faculty_advisor_id) REFERENCES Faculty(faculty_id)
 );
+
+CREATE TABLE Student_Courses (
+    student_id INT,
+    course_id INT,
+    PRIMARY KEY (student_id, course_id),
+    FOREIGN KEY (student_id) REFERENCES Students(student_id) ON DELETE CASCADE,
+    FOREIGN KEY (course_id) REFERENCES Courses(course_id) ON DELETE CASCADE
+);
